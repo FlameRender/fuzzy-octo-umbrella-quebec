@@ -16,7 +16,7 @@ app.get("/", async (req, res) => {
    something = await UsersUtil.readDB();
   
     res.render("index", {
-      something: something.Random,
+      something: something.Random
     });
   });
 // creation call
