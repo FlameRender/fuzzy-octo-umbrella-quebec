@@ -28,6 +28,16 @@ app.post("/submit", async (req, res) => {
     res.redirect("/");
   });
 
+//update call
+app.post("/update", async (req, res) => {
+  const response = await UsersUtil.updateOne(req.body);
+
+  if (!response) console.error(response);
+
+  res.redirect("/");
+});
+
+//deletion call
   app.post("/delete", async (req, res) => {
     const response = await UsersUtil.deleteEntry(req.body);
   
