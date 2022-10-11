@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const UsersUtil = require("./utils/UserUtil");
@@ -27,23 +28,15 @@ app.post("/submit", async (req, res) => {
     res.redirect("/");
   });
 
-//deletion
-app.post("/delete", async (req, res) => {
+  app.post("/delete", async (req, res) => {
     const response = await UsersUtil.deleteEntry(req.body);
   
     if (!response) console.error(response);
   
     res.redirect("/");
   });
-
-  app.post("/update", async (req, res) => {
-    const response = await UsersUtil.updateOne(req.body);
   
-    if (!response) console.error(response);
-  
-    res.redirect("/");
-  });
-
 //Listening
-app.listen(process.env.PORT || 3000,
-    () => console.log("Server is running..."));
+app.listen(PORT, () =>
+  console.log(`Server is running: http://localhost:${PORT}/`)
+);
