@@ -26,12 +26,28 @@ module.exports = class UsersUtil {
     try {
       const collection = client.db("NotesDB").collection("Quebec");
 
-      const something = collection.find().limit(1).sort({$natural:-1}) 
+      something = collection.countDocuments({_id:{$gt:0}});
 
+      console.log(JSON.stringify(something));
       return something;
     } catch (err) {
       console.error("Nothing Found");
       return "No Entries";
+    }
+  }
+
+  static async updateOne(userData) {
+    try {
+      const collection = client.db("NotesDB").collection("Quebec");
+
+      const response = await collection.updateOne({_id:{$gt:1}},{$set:{Random: userData}}); 
+
+      if (!response) throw new Error("Error deleting user");
+
+      return true;
+    } catch (error) {
+      console.error(error);
+      return false;
     }
   }
 
