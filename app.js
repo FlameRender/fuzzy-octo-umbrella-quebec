@@ -1,4 +1,3 @@
-
 const express = require("express");
 const bodyParser = require("body-parser");
 const UsersUtil = require("./utils/UserUtil");
@@ -31,6 +30,14 @@ app.post("/submit", async (req, res) => {
 //deletion
 app.post("/delete", async (req, res) => {
     const response = await UsersUtil.deleteEntry(req.body);
+  
+    if (!response) console.error(response);
+  
+    res.redirect("/");
+  });
+
+  app.post("/update", async (req, res) => {
+    const response = await UsersUtil.updateOne(req.body);
   
     if (!response) console.error(response);
   
