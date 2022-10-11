@@ -31,9 +31,7 @@ app.post("/submit", async (req, res) => {
 //update call
 app.post("/update", async (req, res) => {
   
-  
-  // const response = await UsersUtil.updateOne(req.body);
-  const response = await UsersUtil.updateOne("joe");
+  const response = await UsersUtil.updateOne(req.body);
 
   if (!response) console.error(response);
 
