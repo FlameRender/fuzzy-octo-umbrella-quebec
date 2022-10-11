@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
+//Reference used for class UserUtil where all CRUD function are stored
 const UsersUtil = require("./utils/UserUtil");
 const app = express();
 
@@ -13,6 +14,7 @@ app.set("view engine", "ejs");
 
 //initial reply
 app.get("/", async (req, res) => {
+  //UsersUtil References readDB function in ./utils/UserUtil
    something = await UsersUtil.readDB();
   
     res.render("index", {
@@ -21,6 +23,7 @@ app.get("/", async (req, res) => {
   });
 // creation call
 app.post("/submit", async (req, res) => {
+  //UsersUtil References create function in ./utils/UserUtil
     const response = await UsersUtil.create(req.body);
   
     if (!response) console.error(response);
@@ -30,7 +33,7 @@ app.post("/submit", async (req, res) => {
 
 //update call
 app.post("/update", async (req, res) => {
-  
+  //UsersUtil References updateOne function in ./utils/UserUtil
   const response = await UsersUtil.updateOne(req.body);
 
   if (!response) console.error(response);
@@ -40,6 +43,7 @@ app.post("/update", async (req, res) => {
 
 //deletion call
   app.post("/delete", async (req, res) => {
+    //UsersUtil References deleteEntry function in ./utils/UserUtil
     const response = await UsersUtil.deleteEntry(req.body);
   
     if (!response) console.error(response);
