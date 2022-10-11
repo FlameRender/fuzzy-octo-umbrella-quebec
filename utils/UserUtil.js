@@ -1,17 +1,18 @@
 const { query } = require("express");
 const { ObjectId } = require("mongodb");
+
+//Reference to MongoDB connection at ../db/client
 const client = require("../db/client");
 
-//UserUtil Reference
+
+//UserUtil Reference HERE
 module.exports = class UsersUtil {
   static async create(userData) {
     try {
+      //conection to db and specific collection
       const collection = client.db("NotesDB").collection("Quebec");
 
-      const doc = {
-        content: userData
-      }
-
+      //inserts userData
       const response = await collection.insertOne(userData);
 
       if (!response) throw new Error("Error saving user");
@@ -25,10 +26,11 @@ module.exports = class UsersUtil {
 
   static async readDB() {
     try {
+      //conection to db and specific collection
       const collection = client.db("NotesDB").collection("Quebec");
-
+      //.find used with.sortto find last known _id: then convcerted to array
       something = await collection.find().sort({_id: -1}).toArray();
-
+      //returns last entry in array returned
       return something[0];
     } catch (err) {
       console.error("Nothing Found");
@@ -38,9 +40,9 @@ module.exports = class UsersUtil {
 
   static async updateOne(userData) {
     try {
+      //conection to db and specific collection
       const collection = client.db("NotesDB").collection("Quebec");
-
-
+      //update one using passed data
       const response = await collection.updateOne({Random: userData.Old}, {$set:{Random: userData.New}});
 
       if (!response) throw new Error("Error deleting user");
@@ -58,9 +60,7 @@ module.exports = class UsersUtil {
       const collection = client.db("NotesDB").collection("Quebec");
 
       // Use this collection to delete one user if the Random: in Mongo matches the userId from request
-      const response = await collection.deleteOne({
-        Random: userData.Random
-      });
+      const response = await collection.deleteOne({Random: userData.Random});
       // Throw an error if there is no response
       if (!response) throw new Error("Error deleting user");
 
