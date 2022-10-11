@@ -47,8 +47,9 @@
             <p>Update</p>
 
             <div style = "text-align: center; padding: 10%;">
-                <form method="POST" action="/submit">
-                    <input required name="Random" placeholder="Entry you'd like to update" />
+                <form method="POST" action="/update">
+                    <input required name="Old" placeholder="Enter old Entry" />
+                    <input required name="New" placeholder="Enter its replacement" />
                     <button type="submit" class="submit_button">Update</button>
                 </form>
             </div>

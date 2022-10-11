@@ -16,7 +16,7 @@ app.get("/", async (req, res) => {
    something = await UsersUtil.readDB();
   
     res.render("index", {
-      something: something,
+      something: something.Random,
     });
   });
 // creation call
@@ -30,7 +30,10 @@ app.post("/submit", async (req, res) => {
 
 //update call
 app.post("/update", async (req, res) => {
-  const response = await UsersUtil.updateOne(req.body);
+  
+  
+  // const response = await UsersUtil.updateOne(req.body);
+  const response = await UsersUtil.updateOne("joe");
 
   if (!response) console.error(response);
 

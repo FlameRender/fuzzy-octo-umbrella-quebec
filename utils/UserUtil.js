@@ -26,10 +26,9 @@ module.exports = class UsersUtil {
     try {
       const collection = client.db("NotesDB").collection("Quebec");
 
-      something = collection.countDocuments({_id:{$gt:0}});
+      something = await collection.find().sort({_id: -1}).toArray();
 
-      console.log(JSON.stringify(something));
-      return something;
+      return something[0];
     } catch (err) {
       console.error("Nothing Found");
       return "No Entries";
@@ -40,7 +39,11 @@ module.exports = class UsersUtil {
     try {
       const collection = client.db("NotesDB").collection("Quebec");
 
-      const response = await collection.updateOne({_id:{$gt:1}},{$set:{Random: userData}}); 
+
+      const response = await collection.updateOne({_id: -1}, {"name": "ffrank"});
+
+//      const response = await collection.updateMany({Random: userData.Old},{$set:{Random: userData.New}}); 
+// something = await collection.find().sort({_id: -1}).toArray();
 
       if (!response) throw new Error("Error deleting user");
 
