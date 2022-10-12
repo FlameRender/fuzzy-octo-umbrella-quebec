@@ -1,6 +1,6 @@
 # Dev Lab Quebec
 
-## ISSUES
+## ISSUES:
 
 passing something from Util/UserUtil to app.js into view/index
 
