@@ -11,7 +11,7 @@ something: something.Random
 TypeError: Cannot read properties of undefined (reading 'Random')
 at /app/app.js:21:28
 
-### app.js script line 15
+### app.js script line 15:
 ```javascript
 //initial reply
 app.get("/", async (req, res) => {
@@ -24,7 +24,7 @@ app.get("/", async (req, res) => {
   });
   ```
   
-  ### Util/UsersUtil script line 27
+  ### Util/UsersUtil script line 27:
   ``` javascript
 static async readDB() {
     try {
