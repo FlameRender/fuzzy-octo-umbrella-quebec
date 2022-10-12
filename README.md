@@ -2,9 +2,14 @@
 
 ## ISSUES: runs locally but not on heroku
 
+### Goal:
 passing something from Util/UserUtil to app.js into view/index
 
-Incorrect formatting in res.render
+### heroku error:
+something: something.Random
+
+TypeError: Cannot read properties of undefined (reading 'Random')
+at /app/app.js:21:28
 
 ### app.js script line 15
 ```javascript
