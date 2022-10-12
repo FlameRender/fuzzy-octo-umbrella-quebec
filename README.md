@@ -6,7 +6,7 @@ passing something from Util/UserUtil to app.js into view/index
 
 Incorrect formatting in res.render
 
-### app.js script
+### app.js script line 15
 ```javascript
 //initial reply
 app.get("/", async (req, res) => {
@@ -19,7 +19,7 @@ app.get("/", async (req, res) => {
   });
   ```
   
-  ### Util/UsersUtil script
+  ### Util/UsersUtil script line 27
   ``` javascript
 static async readDB() {
     try {
