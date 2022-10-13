@@ -19,6 +19,7 @@ app.get("/", async (req, res) => {
   //UsersUtil References readDB function in ./utils/UserUtil
    something = await UsersUtil.readDB();
   
+    console.log(something + "  Crash HERE if undefined");
     res.render("index", {
       something: something.Random
     });
