@@ -5,6 +5,12 @@
 ### Goal:
 passing something from Util/UserUtil to app.js into view/index
 
+### Discovery: 
+Crash Occurs only when variable something in app.js turns object undefined
+
+### Fixes to try:
+If statement to catch undefined variable || rework UserUtil.readBD function to not include object array possibly by looping _id in index.ejs
+
 ### heroku error:
 something: something.Random
 
