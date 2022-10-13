@@ -30,7 +30,7 @@ module.exports = class UsersUtil {
       //.find used with.sortto find last known _id: then convcerted to array
       something = await collection.find().sort({_id: -1}).toArray();
       //returns last entry in array returned
-      console.log(JSON.stringify(something[0]) + "Returning from readDB to app.js";
+      console.log(JSON.stringify(something[0]) + "Returning from readDB to app.js");
       return something[0];
     } catch (err) {
       console.error("Nothing Found");
