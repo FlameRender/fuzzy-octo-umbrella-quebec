@@ -12,6 +12,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("static"));
 app.set("view engine", "ejs");
 
+let Random = "test";
+
 //initial reply
 app.get("/", async (req, res) => {
   //UsersUtil References readDB function in ./utils/UserUtil
