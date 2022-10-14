@@ -7,8 +7,6 @@ const client = require("../db/client");
  //conection to db and specific collection
  const collection = client.db("NotesDB").collection("Quebec");
 
-
-
 //UserUtil Reference HERE
 module.exports = class UsersUtil {
   static async create(userData) {
@@ -30,8 +28,9 @@ module.exports = class UsersUtil {
       //.find used with.sortto find last known _id: then convcerted to array
       something = await collection.find().sort({_id: -1}).toArray();
       //returns last entry in array returned
-      console.log(JSON.stringify(something[0]) + "Returning from readDB to app.js");
-      return something[0];
+      // console.log(JSON.stringify(something[0]) + "Returning from readDB to app.js");
+      console.log(something[0]); 
+      return something;
     } catch (err) {
       console.error("Nothing Found");
       return "No Entries";
