@@ -26,7 +26,7 @@ module.exports = class UsersUtil {
   static async readDB() {
     try {
       //.find used with.sortto find last known _id: then convcerted to array
-      something = await collection.find().sort({_id: -1}).toArray();
+      something = await collection.find().limit(1).sort({_id: -1}).toArray();
       //returns last entry in array returned
       // console.log(JSON.stringify(something[0]) + "Returning from readDB to app.js");
       console.log(something[0]); 
